@@ -1,0 +1,121 @@
+=======================================================
+                    CAMPUSTRACK
+========================================================
+       Student Academic Management System
+--------------------------------------------------------
+Enter student ID: 
+STU101
+Enter full name: 
+Ananya rao
+Enter age: 
+21
+Age accepted.
+Enter email: 
+ananya@gmail.com
+
+Select course:
+1. BCA
+2. B.Sc Computer Science
+3. B.E/B.Tech
+4. MCA
+5. Other
+
+Enter course choice: 
+3
+Course selected: B.E/B.Tech
+Enter semester (1-8): 
+7
+Enter career goal: 
+java developer
+
+Enter Java marks: 
+90
+Java marks accepted.
+Enter SQL marks: 
+85
+Enter Web Technology marks: 
+95
+Enter Aptitude marks: 
+97
+Enter Communication marks: 
+98
+
+Enter total classes conducted: 
+112
+Enter classes attended: 
+100
+Attendance accepted.
+
+How many assignment scores do you want to enter? 
+9
+Enter score for assignment 1 (0-10, -1 to finish): 
+7
+Assignment score accepted.
+Enter score for assignment 2 (0-10, -1 to finish): 
+9
+Assignment score accepted.
+Enter score for assignment 3 (0-10, -1 to finish): 
+9
+Assignment score accepted.
+Enter score for assignment 4 (0-10, -1 to finish): 
+9
+Assignment score accepted.
+Enter score for assignment 5 (0-10, -1 to finish): 
+9
+Assignment score accepted.
+Enter score for assignment 6 (0-10, -1 to finish): 
+-1
+Assignment entry completed early.
+
+Final payable fee: ?45000.00
+Enter amount paid: 
+45000.00
+
+========================================================
+                 STUDENT SEMESTER REPORT
+========================================================
+Student ID                 : STU101
+Student Name               : Ananya rao
+Age                        : 21
+Email                      : ananya@gmail.com
+Course                     : B.E/B.Tech
+Semester                   : 7
+Career Goal                : java developer
+
+---------------- ACADEMIC SUMMARY --------------------
+Java Marks                 : 90
+SQL Marks                  : 85
+Web Technology Marks       : 95
+Aptitude Marks             : 97
+Communication Marks        : 98
+Total Marks                : 465/500
+Percentage                 : 93.00%
+Academic Result            : PASSED
+Grade                      : A+
+
+---------------- ATTENDANCE SUMMARY ------------------
+Classes Conducted          : 112
+Classes Attended           : 100
+Attendance Percentage      : 89.29%
+Attendance Status          : REGULAR
+
+---------------- ASSIGNMENT SUMMARY ------------------
+Valid Assignments          : 5
+Assignment Total           : 43
+Assignment Average         : 8.60
+Assignment Status          : SATISFACTORY
+
+---------------- FEE SUMMARY -------------------------
+Base Semester Fee          : ?50000.00
+Scholarship Percentage     : 10%
+Scholarship Amount         : ?5000.00
+Final Payable Fee          : ?45000.00
+Amount Paid                : ?45000.00
+Fee Balance                : ?0.00
+Fee Status                 : PAID
+
+---------------- FINAL STATUS ------------------------
+Semester Clearance         : CLEARED FOR NEXT SEMESTER
+
+---------------- FAILED CONDITIONS -------------------
+None

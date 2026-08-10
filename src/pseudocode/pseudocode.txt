@@ -1,0 +1,243 @@
+START
+
+Create Scanner object
+Display CampusTrack heading
+
+DO
+    // FR-01 & FR-02: Welcome Screen & Student Profile
+    Display "========================================================"
+    Display "                    CAMPUSTRACK"
+    Display "========================================================"
+    Display "       Student Academic Management System"
+    Display "--------------------------------------------------------"
+
+    Read studentId
+    Consume pending newline
+    Read fullName
+
+    Read age
+    WHILE age < 15 OR age > 35
+        Display "Invalid age. Enter a value between 15 and 35."
+        Read age again
+    END WHILE
+    Display "Age accepted."
+
+    Read email
+
+    // Course Selection Loop
+    DO
+        Display Course Menu (1. BCA, 2. B.Sc CS, 3. B.E/B.Tech, 4. MCA, 5. Other)
+        Read courseChoice
+        
+        SWITCH courseChoice
+            CASE 1: courseName = "BCA", baseSemesterFee = 35000.00
+            CASE 2: courseName = "B.Sc Computer Science", baseSemesterFee = 30000.00
+            CASE 3: courseName = "B.E/B.Tech", baseSemesterFee = 50000.00
+            CASE 4: courseName = "MCA", baseSemesterFee = 45000.00
+            CASE 5: courseName = "Other", baseSemesterFee = 25000.00
+            DEFAULT: Display "Invalid course choice. Select a value from 1 to 5."
+        END SWITCH
+    WHILE courseChoice < 1 OR courseChoice > 5
+
+    Display "Course selected: " + courseName
+
+    Read semester
+    Consume pending newline
+    Read careerGoal
+
+    // FR-03: Subject Marks Validation
+    Read javaMarks
+    WHILE javaMarks < 0 OR javaMarks > 100
+        Display "Invalid marks. Enter a value between 0 and 100."
+        Read javaMarks again
+    END WHILE
+    Display "Java marks accepted."
+
+    Read sqlMarks
+    WHILE sqlMarks < 0 OR sqlMarks > 100
+        Display "Invalid marks. Enter a value between 0 and 100."
+        Read sqlMarks again
+    END WHILE
+
+    Read webTechMarks
+    WHILE webTechMarks < 0 OR webTechMarks > 100
+        Display "Invalid marks. Enter a value between 0 and 100."
+        Read webTechMarks again
+    END WHILE
+
+    Read aptitudeMarks
+    WHILE aptitudeMarks < 0 OR aptitudeMarks > 100
+        Display "Invalid marks. Enter a value between 0 and 100."
+        Read aptitudeMarks again
+    END WHILE
+
+    Read commMarks
+    WHILE commMarks < 0 OR commMarks > 100
+        Display "Invalid marks. Enter a value between 0 and 100."
+        Read commMarks again
+    END WHILE
+
+    // FR-04: Total and Percentage
+    totalMarks = javaMarks + sqlMarks + webTechMarks + aptitudeMarks + commMarks
+    percentage = (double) totalMarks / 5.0
+
+    // FR-05: Academic Result Check
+    IF javaMarks >= 35 AND sqlMarks >= 35 AND webTechMarks >= 35 AND aptitudeMarks >= 35 AND commMarks >= 35 AND percentage >= 40.0 THEN
+        academicPassed = true
+        academicResult = "PASSED"
+    ELSE
+        academicPassed = false
+        academicResult = "FAILED"
+    END IF
+
+    // FR-06: Grade Classification
+    IF NOT academicPassed THEN
+        grade = "F"
+    ELSE IF percentage >= 85.0 THEN
+        grade = "A+"
+    ELSE IF percentage >= 75.0 THEN
+        grade = "A"
+    ELSE IF percentage >= 65.0 THEN
+        grade = "B"
+    ELSE IF percentage >= 50.0 THEN
+        grade = "C"
+    ELSE
+        grade = "D"
+    END IF
+
+    // FR-07: Attendance Validation & Calculation
+    Read totalClasses
+    WHILE totalClasses < 1 OR totalClasses > 300
+        Display "Invalid classes conducted. Enter a value between 1 and 300."
+        Read totalClasses again
+    END WHILE
+
+    Read attendedClasses
+    WHILE attendedClasses < 0 OR attendedClasses > totalClasses
+        Display "Invalid attendance. Attended classes cannot exceed " + totalClasses
+        Read attendedClasses again
+    END WHILE
+    Display "Attendance accepted."
+
+    attendancePercentage = ((double) attendedClasses / totalClasses) * 100.0
+    attendanceStatus = (attendancePercentage >= 75.0) ? "REGULAR" : "SHORTAGE"
+
+    // FR-08: Assignment Scores Processing
+    Read numAssignments
+    WHILE numAssignments < 1 OR numAssignments > 10
+        Display "Invalid number of assignments. Enter a value between 1 and 10."
+        Read numAssignments again
+    END WHILE
+
+    validAssignmentCount = 0
+    assignmentTotal = 0
+
+    FOR i = 1 TO numAssignments DO
+        Read score
+
+        IF score == -1 THEN
+            Display "Assignment entry completed early."
+            BREAK
+        END IF
+
+        IF score < -1 OR score > 10 THEN
+            Display "Invalid score. Assignment " + i + " skipped."
+            CONTINUE
+        END IF
+
+        assignmentTotal = assignmentTotal + score
+        validAssignmentCount = validAssignmentCount + 1
+        Display "Assignment score accepted."
+    END FOR
+
+    IF validAssignmentCount > 0 THEN
+        assignmentAverage = (double) assignmentTotal / validAssignmentCount
+    ELSE
+        assignmentAverage = 0.0
+    END IF
+
+    assignmentPassed = (validAssignmentCount > 0) AND (assignmentAverage >= 5.0)
+    assignmentStatus = assignmentPassed ? "SATISFACTORY" : "NEEDS IMPROVEMENT"
+
+    // FR-09: Scholarship Calculation
+    IF academicPassed AND percentage >= 85.0 AND attendancePercentage >= 85.0 THEN
+        scholarshipPercentage = 10
+    ELSE IF academicPassed AND percentage >= 75.0 AND attendancePercentage >= 75.0 THEN
+        scholarshipPercentage = 5
+    ELSE
+        scholarshipPercentage = 0
+    END IF
+
+    scholarshipAmount = (baseSemesterFee * scholarshipPercentage) / 100.0
+    finalPayableFee = baseSemesterFee - scholarshipAmount
+
+    // FR-10: Fee Payment Validation & Calculation
+    Display "Final payable fee: ₹" + finalPayableFee
+    Read amountPaid
+    WHILE amountPaid < 0 OR amountPaid > finalPayableFee
+        Display "Invalid amount. Enter a value between 0 and " + finalPayableFee
+        Read amountPaid again
+    END WHILE
+
+    feeBalance = finalPayableFee - amountPaid
+    feeStatus = (feeBalance == 0) ? "PAID" : "PENDING"
+
+    // FR-11: Final Clearance Status
+    finalCleared = academicPassed AND (attendancePercentage >= 75.0) AND assignmentPassed AND (feeBalance == 0)
+    clearanceStatus = finalCleared ? "CLEARED FOR NEXT SEMESTER" : "ACTION REQUIRED"
+
+    // FR-08 to FR-13: Display Full Report, Failed Conditions & Recommendations
+    Display Semester Report Header and Profile Information
+    Display Academic Summary (Marks, Total, Percentage, Result, Grade)
+    Display Attendance Summary (Conducted, Attended, %, Status)
+    Display Assignment Summary (Valid Count, Total, Average, Status)
+    Display Fee Summary (Base Fee, Scholarship %, Amount, Payable, Paid, Balance, Status)
+    Display Final Clearance Status
+
+    Display Failed Conditions Section:
+    IF finalCleared THEN
+        Display "None"
+    ELSE
+        IF javaMarks < 35 THEN Display "- Java marks are below 35."
+        IF sqlMarks < 35 THEN Display "- SQL marks are below 35."
+        IF webTechMarks < 35 THEN Display "- Web Technology marks are below 35."
+        IF aptitudeMarks < 35 THEN Display "- Aptitude marks are below 35."
+        IF commMarks < 35 THEN Display "- Communication marks are below 35."
+        IF percentage < 40.0 THEN Display "- Overall percentage is below 40%."
+        IF attendancePercentage < 75.0 THEN Display "- Attendance is below 75%."
+        IF validAssignmentCount == 0 THEN
+            Display "- No valid assignment score was entered."
+        ELSE IF assignmentAverage < 5.0 THEN
+            Display "- Assignment average is below 5.00."
+        END IF
+        IF feeBalance > 0 THEN Display "- Semester fee is pending."
+    END IF
+
+    Display Recommendations Section:
+    IF finalCleared THEN
+        Display "Maintain the current performance in the next semester."
+    ELSE
+        IF any subject mark < 35 THEN Display "- Revisit the failed subject and complete additional practice."
+        IF percentage < 40.0 THEN Display "- Improve overall academic performance."
+        IF attendancePercentage < 75.0 THEN Display "- Attend classes regularly and clear the attendance shortage."
+        IF NOT assignmentPassed THEN Display "- Complete assignments consistently and maintain an average of at least 5.00."
+        IF feeBalance > 0 THEN Display "- Pay the pending semester fee before clearance."
+    END IF
+
+    // FR-14: Process Another Student Loop
+    Display "Do you want to process another student?"
+    Display "1. Yes"
+    Display "0. No"
+    Read processAnother
+
+    WHILE processAnother != 0 AND processAnother != 1
+        Display "Invalid choice. Enter 1 or 0."
+        Read processAnother again
+    END WHILE
+
+WHILE processAnother == 1
+
+Display "Thank you for using CampusTrack."
+Close Scanner
+
+STOP
