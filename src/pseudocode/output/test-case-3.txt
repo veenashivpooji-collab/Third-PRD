@@ -1,0 +1,120 @@
+========================================================
+                    CAMPUSTRACK
+========================================================
+       Student Academic Management System
+--------------------------------------------------------
+Enter student ID: 
+STU103
+Enter full name: 
+divya varma
+Enter age: 
+23
+Age accepted.
+Enter email: 
+divyavarma@gmail.com
+
+Select course:
+1. BCA
+2. B.Sc Computer Science
+3. B.E/B.Tech
+4. MCA
+5. Other
+
+Enter course choice: 
+2
+Course selected: B.Sc Computer Science
+Enter semester (1-8): 
+6
+Enter career goal: 
+developer
+
+Enter Java marks: 
+95
+Java marks accepted.
+Enter SQL marks: 
+80
+Enter Web Technology marks: 
+78
+Enter Aptitude marks: 
+67
+Enter Communication marks: 
+89
+
+Enter total classes conducted: 
+100
+Enter classes attended: 
+90
+Attendance accepted.
+
+How many assignment scores do you want to enter? 
+8
+Enter score for assignment 1 (0-10, -1 to finish): 
+9
+Assignment score accepted.
+Enter score for assignment 2 (0-10, -1 to finish): 
+-1
+Assignment entry completed early.
+
+Final payable fee: ?28500.00
+Enter amount paid: 
+28000
+
+========================================================
+                 STUDENT SEMESTER REPORT
+========================================================
+Student ID                 : STU103
+Student Name               : divya varma
+Age                        : 23
+Email                      : divyavarma@gmail.com
+Course                     : B.Sc Computer Science
+Semester                   : 6
+Career Goal                : developer
+
+---------------- ACADEMIC SUMMARY --------------------
+Java Marks                 : 95
+SQL Marks                  : 80
+Web Technology Marks       : 78
+Aptitude Marks             : 67
+Communication Marks        : 89
+Total Marks                : 409/500
+Percentage                 : 81.80%
+Academic Result            : PASSED
+Grade                      : A
+
+---------------- ATTENDANCE SUMMARY ------------------
+Classes Conducted          : 100
+Classes Attended           : 90
+Attendance Percentage      : 90.00%
+Attendance Status          : REGULAR
+
+---------------- ASSIGNMENT SUMMARY ------------------
+Valid Assignments          : 1
+Assignment Total           : 9
+Assignment Average         : 9.00
+Assignment Status          : SATISFACTORY
+
+---------------- FEE SUMMARY -------------------------
+Base Semester Fee          : ?30000.00
+Scholarship Percentage     : 5%
+Scholarship Amount         : ?1500.00
+Final Payable Fee          : ?28500.00
+Amount Paid                : ?28000.00
+Fee Balance                : ?500.00
+Fee Status                 : PENDING
+
+---------------- FINAL STATUS ------------------------
+Semester Clearance         : ACTION REQUIRED
+
+---------------- FAILED CONDITIONS -------------------
+- Semester fee is pending.
+
+---------------- RECOMMENDATIONS ---------------------
+- Pay the pending semester fee before clearance.
+========================================================
+
+Do you want to process another student?
+1. Yes
+0. No
+Enter choice: 
+0
+Thank you for using CampusTrack.
